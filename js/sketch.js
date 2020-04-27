@@ -10,17 +10,26 @@ let database; // reference to our firebase database
 let folderName = 'messages'; // name of folder you create in database
 let messageInput;
 let sendMessageBtn;
+let receiveMessageBtn;
+let receivedMessage;
+let receiveDiv;
+let sendDiv;
 
 
 
 function setup() {
   noCanvas();
-
+   // access DOM elements
   // messageInput = select ("#messageInput");
   messageInput = document.querySelector ("#messageInput");
   sendMessageBtn = document.querySelector ("#sendMessageBtn");
+  receiveMessageBtn = document.querySelector ("#receiveMessageBtn");
+  receivedMessage = document.querySelector ("#receivedMessage");
+  receiveDiv = document.querySelector ("#receiveDiv");
+  sendDiv = document.querySelector ("#sendDiv");
 
   sendMessageBtn.addEventListener('click',sendMessage);
+  receiveMessageBtn.addEventListener('click',receiveMessage);
 
   let config = {
       apiKey: "AIzaSyCbjQyU1Di20_Ck-sC60IfAuqzM2hgY2ek",
@@ -71,5 +80,12 @@ function sendMessage(){
   }else {
   alert("uh oh. type message first")
   }
+
+}
+
+function receiveMessage(){
+  console.log("receive message");
+  console.log(fbDataArray[0].messageText);
+
 
 }

@@ -14,6 +14,7 @@ function gotData(data){
 
     //create an array of the post values(if you need to loop through)
     fbDataArray = Object.values(fbData);
+    
   } else {
     console.log('nothing in this folder yet');
   }
