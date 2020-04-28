@@ -14,7 +14,7 @@ function gotData(data){
 
     //create an array of the post values(if you need to loop through)
     fbDataArray = Object.values(fbData);
-    
+
   } else {
     console.log('nothing in this folder yet');
   }
@@ -27,10 +27,12 @@ function errData(err){
   console.log('error! did not receive data');
   console.log(err);
 
+}
+
   //create a new node
   // the node folder name, id, and object are all passed in as parameters
   function createNode(_nodeFolder, _nodeID, _nodeObject){
-    firebase.database().ref(_nodeFolder + '/' + _nodeId).set(_nodeObject);
+    firebase.database().ref(_nodeFolder + '/' + _nodeID).set(_nodeObject);
   }
 
   // createNode(folderName, "test", {text:"hello"});
@@ -43,8 +45,3 @@ function errData(err){
     firebase.database().ref(_nodeFolder + '/' + _nodeID).remove();
 
   }
-
-
-
-
-}
