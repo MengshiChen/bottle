@@ -12,10 +12,10 @@ function gotData(data){
     console.log ('received data:');
     console.log (fbData);
 
+
     //create an array of the post values(if you need to loop through)
     fbDataArray = Object.values(fbData);
 
-    console.log(fbDataArray);
 
   } else {
     console.log('nothing in this folder yet');
@@ -39,11 +39,35 @@ function errData(err){
 
   // createNode(folderName, "test", {text:"hello"});
 
-  function updateNode(_nodeFolder, _nodeID, updateObject) {
+  function updateNode(_nodeFolder, _nodeID, _updateObject) {
     firebase.database().ref(_nodeFolder + '/' + _nodeID).update(_updateObject);
   }
 
   function deletNode(_nodeFolder, _nodeID){
     firebase.database().ref(_nodeFolder + '/' + _nodeID).remove();
+
+  }
+
+  function seedDatabase (_array){
+
+    _array.forEach(function (item){
+
+      let timestamp = Date.now();
+
+      nodeData = {
+
+        messageText: item,
+        timestamp: timestamp,
+        receive: false,
+      }
+
+      console.log(messageInput.value);
+
+      // console.log (timestamp);
+      createNode(folderName, timestamp, nodeData);
+
+    })
+
+
 
   }
