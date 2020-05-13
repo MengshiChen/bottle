@@ -145,24 +145,24 @@ function displayPastChats(){
 
   for (let i = 0; i< fbDataArray.length; i++){
     let p = createP(fbDataArray[i].message);
-    p.position(random(windowWidth), random(windowHeight));
-    p.style('background-color', `hsl (${(i * 100) % 300}, 50%, 50%)`);
+    p.position(i * 50, random(windowHeight));
+    p.style('background-color', `hsl(${(i * 5) % 300}, 80%, 50%)`);
     // let opacity = map (i / length,0,1,0,.9);
     // p.style('opacity', opacity);
     p.class('messages');
-    p.parent('messageDiv');
+    p.parent('#messageDiv');
   }
 }
 
 function displayLastChats(){
   let index = fbDataArray.length - 1;
   let p = createP(fbDataArray[index].message);
-    p.position(random(windowWidth), random(windowHeight));
-    p.style('background-color', `hsl (${(index * 100) % 300}, 50%, 50%)`);
-    // let opacity = map (i / length,0,1,0,.9);
-    // p.style('opacity', opacity);
+    p.position(index * 100, random(windowHeight));
+    p.style('background-color', `hsl(${(index * 5) % 300}, 80%, 50%)`);
+    let opacity = map (i / length,0,1,0,.9);
+    p.style('opacity', opacity);
     p.class('messages');
-    p.parent('messageDiv');
+    p.parent('#messageDiv');
 
 }
 
