@@ -106,7 +106,7 @@ function receiveMessage() {
       // console.log("receive message");
       // console.log(fbDataArray[i].messageText);
 
-      receivedMessage.innerHTML = fbDataArray[i].messageText;
+      receivedMessage.innerHTML = fbDataArray[i].message;
 
       updateNode(folderName, fbDataArray[i].timestamp, {
         receive: true,
@@ -159,7 +159,7 @@ function displayLastChats(){
   let p = createP(fbDataArray[index].message);
     p.position(index * 100, random(windowHeight));
     p.style('background-color', `hsl(${(index * 5) % 300}, 80%, 50%)`);
-    let opacity = map (i / length,0,1,0,.9);
+    let opacity = map (index / length,0,1,0,.9);
     p.style('opacity', opacity);
     p.class('messages');
     p.parent('#messageDiv');
