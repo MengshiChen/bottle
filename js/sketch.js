@@ -22,8 +22,8 @@ let chatsLoaded = false;
 
 function setup() {
   noCanvas();
-  // access DOM elements
-  // messageInput = select ("#messageInput");
+  //access DOM elements
+  messageInput = select ("#messageInput");
   messageInput = document.querySelector("#messageInput");
   sendMessageBtn = document.querySelector("#sendMessageBtn");
   receiveMessageBtn = document.querySelector("#receiveMessageBtn");
@@ -35,6 +35,7 @@ function setup() {
   sendMessageBtn.addEventListener('click', sendMessage);
   receiveMessageBtn.addEventListener('click', receiveMessage);
   sendAgainBtn.addEventListener('click', sendAgain);
+
 
   let config = {
     apiKey: "AIzaSyCbjQyU1Di20_Ck-sC60IfAuqzM2hgY2ek",
@@ -67,21 +68,22 @@ function sendMessage() {
   if (messageInput.value) {
     let timestamp = Date.now();
 
-    nodeData = {
+    //chatobject
+    let nodeData = {
 
-      messageText: messageInput.value,
+      message: messageInput.value,
       timestamp: timestamp,
       receive: false,
     }
 
     console.log(messageInput.value);
 
-    // console.log (timestamp);
+    // console.log (timestamp);       //chatobject
     createNode(folderName, timestamp, nodeData);
 
-    createP(`send message: ${nodeData.messageText}`);
+    //createP(`send message: ${nodeData.messageText}`);
 
-    messageInput.value = ''
+    messageInput.value = ('');
 
     sendDiv.style.display = "none";
     receiveDiv.style.display = "block";
@@ -89,6 +91,21 @@ function sendMessage() {
   } else {
     alert("uh oh. type message first")
   }
+
+}
+
+function displayPastChats(){
+
+  for (let i = 0; i< fbDataArray.length; i++){
+    let p = createP(fbDataArray[i].message);
+    p.position(random(windowWidth), random(windowHeight));
+    p.style('background-color', '#ff4474');
+  }
+}
+
+function displayLastChats(){
+  let index = fbDataArray.length - 1;
+  let p = createP(fbDataArray[index].message);
 
 }
 

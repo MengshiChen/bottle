@@ -16,6 +16,12 @@ function gotData(data){
     //create an array of the post values(if you need to loop through)
     fbDataArray = Object.values(fbData);
 
+    if (chatsLoaded === false){
+      displayPastChats();
+      chatsLoaded = true;
+    } else {
+      displayLastChats();
+    }
 
   } else {
     console.log('nothing in this folder yet');
@@ -48,26 +54,26 @@ function errData(err){
 
   }
 
-  function seedDatabase (_array){
+  // function seedDatabase (_array){
 
-    _array.forEach(function (item){
-
-      let timestamp = Date.now();
-
-      nodeData = {
-
-        messageText: item,
-        timestamp: timestamp,
-        receive: false,
-      }
-
-      console.log(messageInput.value);
-
-      // console.log (timestamp);
-      createNode(folderName, timestamp, nodeData);
-
-    })
-
-
-
-  }
+  //   _array.forEach(function (item){
+  //
+  //     let timestamp = Date.now();
+  //
+  //     nodeData = {
+  //
+  //       messageText: item,
+  //       timestamp: timestamp,
+  //       receive: false,
+  //     }
+  //
+  //     console.log(messageInput.value);
+  //
+  //     // console.log (timestamp);
+  //     createNode(folderName, timestamp, nodeData);
+  //
+  //   })
+  //
+  //
+  //
+  // }
