@@ -94,33 +94,6 @@ function sendMessage() {
 
 }
 
-function displayPastChats(){
-  let length = fbDataArray.length;
-
-  for (let i = 0; i< fbDataArray.length; i++){
-    let p = createP(fbDataArray[i].message);
-    p.position(i * 100, random(windowHeight));
-    p.style('background-color', `hsl (${(i * 100) % 300}, 80%, 50%)`);
-    // let opacity = map (i / length,0,1,0,.9);
-    // p.style('opacity', opacity);
-    p.class('messages');
-    p.parent('messageDiv')
-  }
-}
-
-function displayLastChats(){
-  let index = fbDataArray.length - 1;
-  let p = createP(fbDataArray[index].message);
-    p.position(index * 100, random(windowHeight));
-    p.style('background-color', `hsl (${(index * 100) % 300}, 80%, 50%)`);
-    // let opacity = map (i / length,0,1,0,.9);
-    // p.style('opacity', opacity);
-    p.class('messages');
-
-}
-
-
-
 function receiveMessage() {
 
   //shuffle array first
@@ -164,6 +137,32 @@ function sendAgain() {
   receiveDiv.style.display = "none";
   sendDiv.style.display = "block";
 
+
+}
+
+function displayPastChats(){
+  let length = fbDataArray.length;
+
+  for (let i = 0; i< fbDataArray.length; i++){
+    let p = createP(fbDataArray[i].message);
+    p.position(random(windowWidth), random(windowHeight));
+    p.style('background-color', `hsl (${(i * 100) % 300}, 50%, 50%)`);
+    // let opacity = map (i / length,0,1,0,.9);
+    // p.style('opacity', opacity);
+    p.class('messages');
+    p.parent('messageDiv');
+  }
+}
+
+function displayLastChats(){
+  let index = fbDataArray.length - 1;
+  let p = createP(fbDataArray[index].message);
+    p.position(random(windowWidth), random(windowHeight));
+    p.style('background-color', `hsl (${(index * 100) % 300}, 50%, 50%)`);
+    // let opacity = map (i / length,0,1,0,.9);
+    // p.style('opacity', opacity);
+    p.class('messages');
+    p.parent('messageDiv');
 
 }
 

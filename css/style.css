@@ -7,7 +7,7 @@ canvas {
 }
 body{
   background-image: RADIAL-gradient(circle at 20% 40%, blue 20%, red 40%, yellow 60%,green 80%);
- background-size: cover;
+  background-size: cover;
 }
 h1,h3{
   color: #FFEF5C;
