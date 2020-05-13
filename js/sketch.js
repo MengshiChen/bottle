@@ -95,17 +95,27 @@ function sendMessage() {
 }
 
 function displayPastChats(){
+  let length = fbDataArray.length;
 
   for (let i = 0; i< fbDataArray.length; i++){
     let p = createP(fbDataArray[i].message);
-    p.position(random(windowWidth), random(windowHeight));
-    p.style('background-color', '#ff4474');
+    p.position(i * 100, random(windowHeight));
+    p.style('background-color', `hsl (${(i * 5) % 300}, 80%, 50%)`);
+    // let opacity = map (i / length,0,1,0,.9);
+    // p.style('opacity', opacity);
+    p.class('messages');
+    p.parent('messageDiv')
   }
 }
 
 function displayLastChats(){
   let index = fbDataArray.length - 1;
   let p = createP(fbDataArray[index].message);
+    p.position(index * 100, random(windowHeight));
+    p.style('background-color', `hsl (${(index * 5) % 300}, 80%, 50%)`);
+    // let opacity = map (i / length,0,1,0,.9);
+    // p.style('opacity', opacity);
+    p.class('messages');
 
 }
 
@@ -115,7 +125,7 @@ function receiveMessage() {
 
   //shuffle array first
 
-  shuffleArray(fbDataArray);
+  //shuffleArray(fbDataArray);
 
   for (let i = 0; i < fbDataArray.length; i++) {
 
@@ -157,20 +167,20 @@ function sendAgain() {
 
 }
 
-function shuffleArray(_array) {
-  // iterate backwards through an array
-  for (let i = _array.length - 1; i > 0; i--) {
-
-    // grab random index from 0 to i
-    let randomIndex = Math.floor(Math.random() * (i + 1));
-
-    // swap elements _array[i] and _array[j]
-    [_array[i], _array[randomIndex]] = [_array[randomIndex], _array[i]]; // using "destructuring assignment" syntax
-
-    // same can be written as:
-    // let _arrayItem = _array[i]; // _array item in original position array[i]
-    // _array[i] = _array[randomIndex]; // overwrite _array[i] with new item at random index
-    // _array[randomIndex] = _arrayItem; // now move _array item from original position into random position
-
-  }
-}
+// function shuffleArray(_array) {
+//   // iterate backwards through an array
+//   for (let i = _array.length - 1; i > 0; i--) {
+//
+//     // grab random index from 0 to i
+//     let randomIndex = Math.floor(Math.random() * (i + 1));
+//
+//     // swap elements _array[i] and _array[j]
+//     [_array[i], _array[randomIndex]] = [_array[randomIndex], _array[i]]; // using "destructuring assignment" syntax
+//
+//     // same can be written as:
+//     // let _arrayItem = _array[i]; // _array item in original position array[i]
+//     // _array[i] = _array[randomIndex]; // overwrite _array[i] with new item at random index
+//     // _array[randomIndex] = _arrayItem; // now move _array item from original position into random position
+//
+//   }
+// }

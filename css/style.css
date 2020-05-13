@@ -5,9 +5,33 @@ html, body {
 canvas {
   display: block;
 }
+body{
+  background-image: RADIAL-gradient(circle at 20% 40%, blue 20%, red 40%, yellow 60%,green 80%);
+ background-size: cover;
+}
+h1,h3{
+  color: #FFEF5C;
+}
+.senddiv {
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  background-color: red;
+  padding:20px;
+  z-index: 1;
+}
 
+.messages{
+  padding:10px;
+}
 .hidden {
   display: none;
   /*visibility: hidden;
   visibility: visible;*/
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  background-color: red;
+  padding:20px;
+  z-index: 1;
 }
